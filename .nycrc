@@ -6,7 +6,7 @@
     "text"
   ],
   "include": [
-    "index.js"
+    "lib"
   ],
   "branches": 100,
   "lines": 100,

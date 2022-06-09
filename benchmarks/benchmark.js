@@ -1,7 +1,7 @@
 'use strict'
 
 const { Suite } = require('benchmark')
-const encodingNegotiator = require('.')
+const encodingNegotiator = require('../lib/index')
 
 const suite = new Suite()
 

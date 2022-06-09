@@ -3,11 +3,16 @@
   "version": "1.0.0",
   "description": "a negotiator for the accept-encoding header",
   "type": "commonjs",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "nyc node ./test/test.js",
-    "lint": "standard index.js test/* benchmark.js"
+    "lint": "standard lib/* test/* benchmarks/*"
+  },
+  "standard": {
+    "ignore": [
+      "/lib/**/*.ts"
+    ]
   },
   "keywords": [
     "encoding",
