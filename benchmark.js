@@ -14,6 +14,7 @@ const testCases = [
   ['*', ['gzip', 'deflate'], 'gzip'],
   ['deflate;q=1.0, *', ['gzip'], 'gzip'],
   ['test,br', ['br'], 'br'],
+  ['gzip;q=0', [], null],
   ['gzip;q=0', ['gzip', 'identity'], null],
   ['white rabbit', ['gzip', 'identity'], null],
   [undefined, ['gzip', 'identity'], undefined],

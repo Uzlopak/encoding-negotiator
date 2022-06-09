@@ -7,6 +7,10 @@ function negotiate (header, supportedEncodings) {
     return undefined
   }
 
+  if (supportedEncodings.length === 0) {
+    return null
+  }
+
   if (header === '*') {
     return supportedEncodings[0]
   }
