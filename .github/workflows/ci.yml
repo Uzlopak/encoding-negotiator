@@ -1,0 +1,13 @@
+name: ci
+
+on:
+  push:
+    paths-ignore:
+      - '*.md'
+  pull_request:
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  test:
+    uses: fastify/workflows/.github/workflows/plugins-ci.yml@v3
