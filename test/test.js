@@ -60,5 +60,10 @@ const testCasesParse = [
 ]
 
 for (const [header, expected] of testCasesParse) {
-  assert.deepEqual(parse(header), expected, `should return ${expected} when ${header}`)
+  const result = []
+  function parseMatch (enc, quality) {
+    result.push([enc, quality])
+  }
+  parse(header, parseMatch)
+  assert.deepEqual(expected, result, `should return ${expected} when ${header}`)
 }

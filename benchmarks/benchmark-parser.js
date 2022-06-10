@@ -26,9 +26,11 @@ const testCases = [
   'white rabbit'
 ]
 
+const noop = () => {}
+
 for (const benchCase of testCases) {
   suite.add(benchCase, function () {
-    parse(benchCase)
+    parse(benchCase, noop)
   })
 }
 suite
