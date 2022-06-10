@@ -39,6 +39,7 @@ const testCasesParse = [
   ['gzip;q=1, identity;q=0.5', [['gzip', 1], ['identity', 0.5]]],
   ['gzip;q=0.8, identity;q=0.5, *;q=0.3', [['gzip', 0.8], ['identity', 0.5], ['*', 0.3]]],
   ['qzip;q=0.8', [['qzip', 0.8]]],
+  ['qz3ip;q=0.9', [['qz3ip', 0.9]]],
   [undefined, []],
   ['', []],
   ['   ', []],
@@ -49,7 +50,13 @@ const testCasesParse = [
   [' ; gzip;q=0.8', [['gzip', 0.8]]],
   [' ; gzip ;q=0.8', [['gzip', 0.8]]],
   [' ; gzip; q=0.8', [['gzip', 0.8]]],
-  [' ; gzip ; q=0.8', [['gzip', 0.8]]]
+  [' ; gzip ; q=0.8', [['gzip', 0.8]]],
+  ['iden tity;q=1', [['tity', 1]]],
+  // non-standard
+  [';qzip;q=abc', [['qzip', 0], ['abc', 1]]],
+  ['iden tity;q = 1', [['tity', 1]]],
+  ['iden tity;q = 1f', [['tity', 1]]],
+  ['gzip;q=1, identity;q=0.f5', [['gzip', 1], ['identity', 0], ['f5', 1]]],
 ]
 
 for (const [header, expected] of testCasesParse) {

@@ -18,7 +18,6 @@ const testCases = [
   'gzip;q=0.8, deflate',
   'gzip;q=0.8, identity;q=0.5, *;q=0.3',
   'gzip;q=0',
-  'gzip;q=0',
   'gzip;q=1, identity;q=0.5',
   'gzip;q=1.0, compress;q=0.5',
   'identity;q=0',
