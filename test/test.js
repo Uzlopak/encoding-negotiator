@@ -56,7 +56,7 @@ const testCasesParse = [
   [';qzip;q=abc', [['qzip', 0], ['abc', 1]]],
   ['iden tity;q = 1', [['tity', 1]]],
   ['iden tity;q = 1f', [['tity', 1]]],
-  ['gzip;q=1, identity;q=0.f5', [['gzip', 1], ['identity', 0], ['f5', 1]]],
+  ['gzip;q=1, identity;q=0.f5', [['gzip', 1], ['identity', 0], ['f5', 1]]]
 ]
 
 for (const [header, expected] of testCasesParse) {
