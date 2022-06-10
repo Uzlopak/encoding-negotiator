@@ -5,8 +5,12 @@ const negotiate = require('../lib/index').negotiate
 const parse = require('../lib/parse')
 
 const testCases = [
+  ['gzip, , identity', ['deflate', 'gzip'], 'gzip'],
   ['identity;q=1', ['gzip', 'identity'], 'identity'],
   ['gzip;q=1, identity;q=0.5', ['gzip', 'deflate'], 'gzip'],
+  ['gzip, identity;q=0.5', ['gzip', 'deflate'], 'gzip'],
+  ['gzip, , identity', ['deflate', 'gzip'], 'gzip'],
+  ['gzip', ['gzip', 'deflate'], 'gzip'],
   ['deflate;q=0.5,identity; q=0.5', ['gzip', 'deflate'], 'deflate'],
   ['deflate;q=0.5, gzip;q=0.5', ['gzip', 'deflate'], 'gzip'],
   ['deflate;q=0.5, gzip;q=0.5', ['deflate', 'gzip'], 'deflate'],
@@ -27,7 +31,8 @@ const testCases = [
   ['identity;q=0', ['identity'], null],
   ['gzip, compress;q=0', ['compress', 'gzip'], 'gzip'],
   ['gzip;q=0.8, deflate', ['gzip', 'deflate'], 'deflate'],
-  ['gzip;q=0.8, identity;q=0.5, *;q=0.3', ['deflate', 'gzip', 'br'], 'gzip']
+  ['gzip;q=0.8, identity;q=0.5, *;q=0.3', ['deflate', 'gzip', 'br'], 'gzip'],
+  [';qzip;q=1gzip', ['qzip'], 'qzip']
 ]
 
 for (const [header, supportedEncodings, expected] of testCases) {
